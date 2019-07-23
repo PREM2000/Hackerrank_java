@@ -6,11 +6,11 @@ class Ideone
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		Scanner in = new Scanner(System.in);
+	Scanner in = new Scanner(System.in);
         int i = in.nextInt();
         double d = in.nextDouble();
         String s= in.nextLine();
-        s+=in.nextLine();
+        s+=in.nextLine();		//add this statement extra.
         System.out.println("String: "+s);
         System.out.println("Double: "+d);
         System.out.println("Int: " +i);
