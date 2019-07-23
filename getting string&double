@@ -1,0 +1,28 @@
+/* we can't get string as input immediately after getting double as input similarly vice versa*/
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner in = new Scanner(System.in);
+        int i = in.nextInt();
+        double d = in.nextDouble();
+        String s= in.nextLine();
+        s+=in.nextLine();
+        System.out.println("String: "+s);
+        System.out.println("Double: "+d);
+        System.out.println("Int: " +i);
+	}
+}
+
+input:
+776
+887.6
+hello world
+
+output:
+String: hello world
+Double: 887.6
+Int: 776
