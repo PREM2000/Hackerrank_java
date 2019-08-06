@@ -26,6 +26,7 @@ output:
 String: hello world
 Double: 887.6
 Int: 776
+
 REASON:
 In Scanner class if we call nextLine() method after any one of the seven nextXXX() method then the nextLine() doesn’t not read values
 from console and cursor will not come into console it will skip that step.
