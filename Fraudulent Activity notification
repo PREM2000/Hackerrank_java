@@ -1,0 +1,100 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+
+public class Solution 
+{   
+     static ArrayList<Integer> al=new ArrayList<Integer>();
+    public static int find_index(int i)             //Binary search
+    {    
+      int start=0;
+      int end = al.size()-1;
+      while(start<=end){
+          
+           int mid =(start+end)/2;
+           if(al.get(mid)==i) return mid;
+           else if(al.get(mid)>i) end = mid-1;
+           else start=mid+1;
+      }
+      
+      return 0;
+    }
+
+    public static int find_next_index(int i){
+    
+
+      int start=0;
+      int end = al.size()-1;
+      int index=0;
+      while(start<=end){
+          
+           int mid =(start+end)/2;
+           
+           if(al.get(mid)>i) end = mid-1;
+           else{ 
+               index = mid;
+               start=mid+1;
+           
+           }
+      }
+      
+      return index;
+    }
+
+
+   
+    public static void main(String[] args) 
+    {
+         Scanner in = new Scanner(System.in);
+
+        String[] nd = in.nextLine().split(" ");
+
+        int n = Integer.parseInt(nd[0]);
+
+        int d = Integer.parseInt(nd[1]);
+
+        int[] exp = new int[n];
+
+        int notifi=0,temp=0;float median=0;
+
+        for (int i = 0; i < n; i++)
+        {
+            if(i<d)
+            {   
+                exp[i]=in.nextInt();
+                al.add(exp[i]);
+            }
+            else
+            {
+                if(i==d)
+                    Collections.sort(al);
+                int s=al.size();
+                if(d%2!=0)
+                    median=al.get(s/2).floatValue();
+                else
+                    median=(al.get(s/2).floatValue() + al.get((s/2) - 1).floatValue())/2;
+                
+                int x=in.nextInt();
+                exp[i]=x;
+        
+                if(2*median<=x)
+                    notifi++;
+              
+                int index = find_index(exp[i-d]);
+                al.remove(index);
+                index = find_next_index(exp[i])+1;
+                al.add(index,exp[i]);
+            }
+        }       
+                 
+         System.out.println(notifi);
+    }
+}
+Input:
+9 5
+2 3 4 2 3 6 8 4 5
+Output:
+2
+
+
